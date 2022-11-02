@@ -315,7 +315,8 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Domain": "1.0.0",
-          "FluentValidation": "11.2.2"
+          "FluentValidation": "11.2.2",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0-rc.2.22472.3"
         },
         "compile": {
           "bin/placeholder/Application.dll": {}

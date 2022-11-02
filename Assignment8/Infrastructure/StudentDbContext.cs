@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Domain;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure;
 
@@ -11,6 +12,9 @@ public class StudentDbContext: DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Student>()
+            .HasKey(s => s.Id);
+        
         
     }
 }

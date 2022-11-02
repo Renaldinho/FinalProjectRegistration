@@ -6,5 +6,14 @@ namespace API.Controllers;
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase
 {
+
+
     
+    
+    [HttpPost]
+    [Route("Rebuild database")]
+    public void BuildDatabase()
+    {
+        
+    }
 }

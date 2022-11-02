@@ -9,6 +9,10 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+
+Application.DependencyResolvement.DependencyResolverService.RegisterApplicationLayer(builder.Services);
+Infrastructure.DependencyResolvement.DependencyResolverService.RegisterInfrastructureLayer(builder.Services);
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
