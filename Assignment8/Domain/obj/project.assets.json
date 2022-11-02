@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bruger\\RiderProjects\\Assignment8\\Domain\\Domain.csproj",
+      "projectUniqueName": "C:\\Users\\Bruger\\Documents\\GitHub\\FinalProjectRegistration\\Assignment8\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "C:\\Users\\Bruger\\RiderProjects\\Assignment8\\Domain\\Domain.csproj",
+      "projectPath": "C:\\Users\\Bruger\\Documents\\GitHub\\FinalProjectRegistration\\Assignment8\\Domain\\Domain.csproj",
       "packagesPath": "C:\\Users\\Bruger\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bruger\\RiderProjects\\Assignment8\\Domain\\obj\\",
+      "outputPath": "C:\\Users\\Bruger\\Documents\\GitHub\\FinalProjectRegistration\\Assignment8\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Bruger\\AppData\\Roaming\\NuGet\\NuGet.Config"

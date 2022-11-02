@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Bruger\\RiderProjects\\Assignment8\\Infrastructure\\Infrastructure.csproj": {}
+    "C:\\Users\\Bruger\\Documents\\GitHub\\FinalProjectRegistration\\Assignment8\\Infrastructure\\Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Bruger\\RiderProjects\\Assignment8\\Application\\Application.csproj": {
+    "C:\\Users\\Bruger\\Documents\\GitHub\\FinalProjectRegistration\\Assignment8\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bruger\\RiderProjects\\Assignment8\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\Bruger\\Documents\\GitHub\\FinalProjectRegistration\\Assignment8\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\Bruger\\RiderProjects\\Assignment8\\Application\\Application.csproj",
+        "projectPath": "C:\\Users\\Bruger\\Documents\\GitHub\\FinalProjectRegistration\\Assignment8\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\Bruger\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bruger\\RiderProjects\\Assignment8\\Application\\obj\\",
+        "outputPath": "C:\\Users\\Bruger\\Documents\\GitHub\\FinalProjectRegistration\\Assignment8\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Bruger\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -26,8 +26,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Bruger\\RiderProjects\\Assignment8\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Bruger\\RiderProjects\\Assignment8\\Domain\\Domain.csproj"
+              "C:\\Users\\Bruger\\Documents\\GitHub\\FinalProjectRegistration\\Assignment8\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Bruger\\Documents\\GitHub\\FinalProjectRegistration\\Assignment8\\Domain\\Domain.csproj"
               }
             }
           }
@@ -41,6 +41,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.2.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -61,14 +67,14 @@
         }
       }
     },
-    "C:\\Users\\Bruger\\RiderProjects\\Assignment8\\Domain\\Domain.csproj": {
+    "C:\\Users\\Bruger\\Documents\\GitHub\\FinalProjectRegistration\\Assignment8\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bruger\\RiderProjects\\Assignment8\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Bruger\\Documents\\GitHub\\FinalProjectRegistration\\Assignment8\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Bruger\\RiderProjects\\Assignment8\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\Bruger\\Documents\\GitHub\\FinalProjectRegistration\\Assignment8\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Bruger\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bruger\\RiderProjects\\Assignment8\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\Bruger\\Documents\\GitHub\\FinalProjectRegistration\\Assignment8\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Bruger\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -114,14 +120,14 @@
         }
       }
     },
-    "C:\\Users\\Bruger\\RiderProjects\\Assignment8\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\Bruger\\Documents\\GitHub\\FinalProjectRegistration\\Assignment8\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bruger\\RiderProjects\\Assignment8\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Bruger\\Documents\\GitHub\\FinalProjectRegistration\\Assignment8\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\Bruger\\RiderProjects\\Assignment8\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "C:\\Users\\Bruger\\Documents\\GitHub\\FinalProjectRegistration\\Assignment8\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Bruger\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bruger\\RiderProjects\\Assignment8\\Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\Bruger\\Documents\\GitHub\\FinalProjectRegistration\\Assignment8\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Bruger\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -136,8 +142,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Bruger\\RiderProjects\\Assignment8\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\Bruger\\RiderProjects\\Assignment8\\Application\\Application.csproj"
+              "C:\\Users\\Bruger\\Documents\\GitHub\\FinalProjectRegistration\\Assignment8\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\Bruger\\Documents\\GitHub\\FinalProjectRegistration\\Assignment8\\Application\\Application.csproj"
               }
             }
           }

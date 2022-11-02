@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "jL358Jp1+TAYPPmLZN2GRRlnEeCvOUj1luWVzdaD8J4Ats12zFlUsLseLee6nmJAfwciMHbGCQDi0S6zKd3Ziw==",
+  "dgSpecHash": "PDmSJf9ZDvwip6VNxZy+el8lDPRl+xryCRcIHFzKYVwvhUZAIcEU8SdxvqmTJFaiA6sWcRHMKskQJ4oSZ2yNJQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Bruger\\RiderProjects\\Assignment8\\API\\API.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Bruger\\Documents\\GitHub\\FinalProjectRegistration\\Assignment8\\API\\API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Bruger\\.nuget\\packages\\fluentvalidation\\11.2.2\\fluentvalidation.11.2.2.nupkg.sha512"
+  ],
   "logs": []
 }

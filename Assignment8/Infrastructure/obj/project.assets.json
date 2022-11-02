@@ -2,11 +2,21 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "FluentValidation/11.2.2": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
+        }
+      },
       "Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Domain": "1.0.0"
+          "Domain": "1.0.0",
+          "FluentValidation": "11.2.2"
         },
         "compile": {
           "bin/placeholder/Application.dll": {}
@@ -28,6 +38,27 @@
     }
   },
   "libraries": {
+    "FluentValidation/11.2.2": {
+      "sha512": "5QEte2BUZZF6Sezeekr7Zu1THfgpxU7pmuL2SjIrajuGMah+pxPGiRiLtw+x/tSUSSVmcv9LrUe41lKu4l0n4A==",
+      "type": "package",
+      "path": "fluentvalidation/11.2.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fluent-validation-icon.png",
+        "fluentvalidation.11.2.2.nupkg.sha512",
+        "fluentvalidation.nuspec",
+        "lib/net5.0/FluentValidation.dll",
+        "lib/net5.0/FluentValidation.xml",
+        "lib/net6.0/FluentValidation.dll",
+        "lib/net6.0/FluentValidation.xml",
+        "lib/netstandard2.0/FluentValidation.dll",
+        "lib/netstandard2.0/FluentValidation.xml",
+        "lib/netstandard2.1/FluentValidation.dll",
+        "lib/netstandard2.1/FluentValidation.xml"
+      ]
+    },
     "Application/1.0.0": {
       "type": "project",
       "path": "../Application/Application.csproj",
@@ -50,11 +81,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bruger\\RiderProjects\\Assignment8\\Infrastructure\\Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\Bruger\\Documents\\GitHub\\FinalProjectRegistration\\Assignment8\\Infrastructure\\Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "C:\\Users\\Bruger\\RiderProjects\\Assignment8\\Infrastructure\\Infrastructure.csproj",
+      "projectPath": "C:\\Users\\Bruger\\Documents\\GitHub\\FinalProjectRegistration\\Assignment8\\Infrastructure\\Infrastructure.csproj",
       "packagesPath": "C:\\Users\\Bruger\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bruger\\RiderProjects\\Assignment8\\Infrastructure\\obj\\",
+      "outputPath": "C:\\Users\\Bruger\\Documents\\GitHub\\FinalProjectRegistration\\Assignment8\\Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Bruger\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -69,8 +100,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Bruger\\RiderProjects\\Assignment8\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\Bruger\\RiderProjects\\Assignment8\\Application\\Application.csproj"
+            "C:\\Users\\Bruger\\Documents\\GitHub\\FinalProjectRegistration\\Assignment8\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\Bruger\\Documents\\GitHub\\FinalProjectRegistration\\Assignment8\\Application\\Application.csproj"
             }
           }
         }
