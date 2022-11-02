@@ -8,9 +8,9 @@ public interface IStudentRepository
 
     public Student CreateNewStudent(Student student);
 
-    public bool DeleteStudent(Student student);
+    public Student DeleteStudent(int id);
 
-    public IEnumerable<Student> GetAllStudents();
+    public List<Student> GetAllStudents();
 
-    public bool UpdateStudent(Student student);
+    public Student UpdateStudent(Student student);
 }

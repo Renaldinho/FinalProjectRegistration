@@ -13,8 +13,9 @@ public class StudentDbContext: DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Student>()
-            .HasKey(s => s.Id);
-        
-        
+            .Property(s => s.Id)
+            .ValueGeneratedOnAdd();
     }
+
+    public DbSet<Student> Students { get; set; }
 }

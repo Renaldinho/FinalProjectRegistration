@@ -5,28 +5,44 @@ namespace Infrastructure;
 
 public class StudentRepository: IStudentRepository
 {
+
+    private StudentDbContext _context;
+
+    public StudentRepository(StudentDbContext context)
+    {
+        _context = context;
+    }
+
     public void RebuildDatabase()
     {
-        throw new NotImplementedException();
+        _context.Database.EnsureDeleted();
+        _context.Database.EnsureCreated();
     }
 
     public Student CreateNewStudent(Student student)
     {
-        throw new NotImplementedException();
+        var createdStudent = _context.Students.Add(student).Entity;
+        _context.SaveChanges();
+        return createdStudent;
     }
 
-    public bool DeleteStudent(Student student)
+    public Student DeleteStudent(int id)
     {
-        throw new NotImplementedException();
+        var studentToDelete = _context.Students.Find(id) ?? throw new KeyNotFoundException();
+        _context.Students.Remove(studentToDelete);
+        _context.SaveChanges();
+        return studentToDelete;
     }
 
-    public IEnumerable<Student> GetAllStudents()
+    public List<Student> GetAllStudents()
     {
-        throw new NotImplementedException();
+        return _context.Students.ToList();
     }
 
-    public bool UpdateStudent(Student student)
+    public Student UpdateStudent(Student student)
     {
-        throw new NotImplementedException();
+        var updatedStudent = _context.Students.Update(student).Entity;
+        _context.SaveChanges();
+        return updatedStudent;
     }
 }

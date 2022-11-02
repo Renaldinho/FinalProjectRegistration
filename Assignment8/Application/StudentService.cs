@@ -1,32 +1,63 @@
-﻿using Domain;
+﻿using Application.DTOs;
+using Application.Interfaces;
+using AutoMapper;
+using Domain;
 using Domain.Interfaces;
+using FluentValidation;
 
 namespace Application;
 
 public class StudentService: IStudentService
 {
-    public IEnumerable<Student> GetAll()
+    private readonly IStudentRepository _repository;
+    private readonly IMapper _mapper;
+    private readonly IValidator<PostStudentDTO> _studentDTOValidator;
+    private readonly IValidator<Student> _studentValidator;
+
+    public StudentService(IStudentRepository repository,IMapper mapper
+                            ,IValidator<PostStudentDTO> studentDTOValidator,IValidator<Student> studentValidator)
     {
-        throw new NotImplementedException();
+        _repository = repository;
+        _mapper = mapper;
+        _studentDTOValidator = studentDTOValidator;
+        _studentValidator = studentValidator;
     }
 
-    public Student GetById(int id)
+    public void RebuildDatabase()
     {
-        throw new NotImplementedException();
+        _repository.RebuildDatabase();
     }
 
-    public void Add(Student s)
+    public Student CreateNewStudent(PostStudentDTO dto)
     {
-        throw new NotImplementedException();
+        var validation = _studentDTOValidator.Validate(dto);
+        if (!validation.IsValid)
+            throw new ValidationException(validation.ToString());
+        
+        Student mappedStudent = _mapper.Map<Student>(dto);
+        return _repository.CreateNewStudent(mappedStudent);
     }
 
-    public void Update(Student s)
+    public List<Student> GetAllStudents()
     {
-        throw new NotImplementedException();
+        return _repository.GetAllStudents();
     }
 
-    public void Remove(Student s)
+    public Student UpdateStudent(int id, Student student)
     {
-        throw new NotImplementedException();
+        if (id != student.Id)
+            throw new ValidationException("ID in route and body don't match");
+        var validation = _studentValidator.Validate(student);
+        
+        if (!validation.IsValid)
+            throw new ValidationException(validation.ToString());
+
+        return _repository.UpdateStudent(student);
+
+    }
+
+    public Student DeleteStudent(int id)
+    {
+        return _repository.DeleteStudent(id);
     }
 }
