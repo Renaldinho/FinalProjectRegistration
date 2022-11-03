@@ -1,4 +1,66 @@
+<!--
 <button (click)="printStudents()">see students</button>
 <button (click)="createTestStudent()">createStudent</button>
 <button (click)="deleteStudent(3)">delete student</button>
 <button (click)="editStudent()">edit student</button>
+-->
+
+<div class="main-container">
+
+  <mat-form-field appearance="standard">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Bobby Bobson">
+  </mat-form-field>
+
+  <div class="mat-elevation-z8">
+
+    <table mat-table [dataSource]="studentDataSource" matSort>
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let student"> {{student.id}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <td mat-cell *matCellDef="let student"> {{student.name}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
+        <td mat-cell *matCellDef="let student"> {{student.address}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="zipcode">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Zipcode </th>
+        <td mat-cell *matCellDef="let student"> {{student.zipcode}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="postal district">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Postal district </th>
+        <td mat-cell *matCellDef="let student"> {{student.postaldistrict}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+        <td mat-cell *matCellDef="let student"> {{student.email}} </td>
+      </ng-container>
+
+
+
+
+      <!--Row defintion -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+
+  </div>
+
+</div>
+
+<button (click)="printStudents()">see students</button>

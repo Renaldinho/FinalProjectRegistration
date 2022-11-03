@@ -14,7 +14,9 @@ export class HttpService{
 
   students: Student[] = [];
 
-  constructor() { }
+  constructor() {
+    this.getStudents();
+  }
 
   async getStudents(){
     const httpResponse = await customAxios.get<Student[]>('/Student/GetStudents');
