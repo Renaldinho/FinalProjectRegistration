@@ -16,9 +16,24 @@ export class HttpService{
 
   constructor() { }
 
-  async getProducts(){
+  async getStudents(){
     const httpResponse = await customAxios.get<Student[]>('/Student/GetStudents');
     this.students = httpResponse.data;
+  }
+
+  async createStudent(dto:  StudentDTO) {
+    const httpResponse = await customAxios.post('/Student/PostStudent',dto);
+    this.students.push(httpResponse.data);
+  }
+
+  async deleteStudent(id:number){
+    const httpResponse = await customAxios.delete('/Student/'+id);
+    this.students.filter(s=>s.id!=httpResponse.data.id);
+  }
+
+  async editStudent(student: Student){
+    const httpResponse = await customAxios.put('Student/UpdateStudent/'+student.id,student)
+    await this.getStudents();
   }
 
 }
@@ -28,6 +43,14 @@ interface Student{
   name: string,
   address: string,
   zipcode: number,
-  postal_district: string,
+  postaldistrict: string,
+  email: string
+}
+
+interface StudentDTO{
+  name: string,
+  address: string,
+  zipcode: number,
+  postaldistrict: string,
   email: string
 }

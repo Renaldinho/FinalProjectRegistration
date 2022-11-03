@@ -16,4 +16,42 @@ export class AppComponent {
   printStudents() {
     console.log(this.http.students);
   }
+
+  async createTestStudent() {
+    const studentDTO: StudentDTO ={
+      name: "name",address: "bob", zipcode: 12133, postaldistrict: "2121",email: "mail"
+    }
+
+    await this.http.createStudent(studentDTO);
+  }
+
+  deleteStudent(id: number) {
+    this.http.deleteStudent(id);
+  }
+
+  editStudent() {
+    const student: Student = {
+      address: "1111", email: "11111", id: 4, name: "bababababbaba", postaldistrict: "321312", zipcode: 1111
+
+    }
+    this.http.editStudent(student);
+  }
+}
+
+//Make these global interfaces somehow
+interface StudentDTO{
+  name: string,
+  address: string,
+  zipcode: number,
+  postaldistrict: string,
+  email: string
+}
+
+interface Student{
+  id: number,
+  name: string,
+  address: string,
+  zipcode: number,
+  postaldistrict: string,
+  email: string
 }
