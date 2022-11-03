@@ -31,27 +31,11 @@ export class AppComponent {
 
   editStudent() {
     const student: Student = {
-      address: "1111", email: "11111", id: 4, name: "bababababbaba", postaldistrict: "321312", zipcode: 1111
+      address: "1111", email: "11111", id: 8, name: "bababababbaba", postaldistrict: "321312", zipcode: 1111
 
     }
     this.http.editStudent(student);
   }
 }
 
-//Make these global interfaces somehow
-interface StudentDTO{
-  name: string,
-  address: string,
-  zipcode: number,
-  postaldistrict: string,
-  email: string
-}
 
-interface Student{
-  id: number,
-  name: string,
-  address: string,
-  zipcode: number,
-  postaldistrict: string,
-  email: string
-}

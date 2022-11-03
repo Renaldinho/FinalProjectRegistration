@@ -38,19 +38,4 @@ export class HttpService{
 
 }
 
-interface Student{
-  id: number,
-  name: string,
-  address: string,
-  zipcode: number,
-  postaldistrict: string,
-  email: string
-}
 
-interface StudentDTO{
-  name: string,
-  address: string,
-  zipcode: number,
-  postaldistrict: string,
-  email: string
-}
