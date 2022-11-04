@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import axios from 'axios';//import
 
 //Config
@@ -21,6 +21,7 @@ export class HttpService{
   async getStudents(){
     const httpResponse = await customAxios.get<Student[]>('/Student/GetStudents');
     this.students = httpResponse.data;
+    return this.students;
   }
 
   async createStudent(dto:  StudentDTO) {
@@ -35,8 +36,10 @@ export class HttpService{
 
   async editStudent(student: Student){
     const httpResponse = await customAxios.put('Student/UpdateStudent/'+student.id,student)
-    await this.getStudents();
+    let itemIndex = this.students.findIndex(s=>s.id==student.id);
+    this.students[itemIndex] = httpResponse.data;
   }
+
 
 }
 

@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {HttpService} from "../services/http.service";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
@@ -9,7 +9,7 @@ import {MatSort} from "@angular/material/sort";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements AfterViewInit{
+export class AppComponent implements AfterViewInit,OnInit{
 
   displayedColumns: String[] = ["id","name","address","zipcode","postal district","email"]
   studentDataSource!: MatTableDataSource<Student>;
@@ -18,12 +18,11 @@ export class AppComponent implements AfterViewInit{
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private http: HttpService) {
-    this.studentDataSource = new MatTableDataSource<Student>(this.http.students);
+
   }
 
   ngAfterViewInit(): void {
-    this.studentDataSource.paginator = this.paginator;
-    this.studentDataSource.sort = this.sort;
+
   }
 
   printStudents() {
@@ -44,7 +43,7 @@ export class AppComponent implements AfterViewInit{
 
   editStudent() {
     const student: Student = {
-      address: "1111", email: "11111", id: 8, name: "bababababbaba", postaldistrict: "321312", zipcode: 1111
+      address: "1111", email: "11111", id: 4, name: "caca", postaldistrict: "321312", zipcode: 1111
 
     }
     this.http.editStudent(student);
@@ -52,7 +51,17 @@ export class AppComponent implements AfterViewInit{
 
 
   applyFilter(event: KeyboardEvent) {
-    console.log((event.target as HTMLInputElement).value);
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.studentDataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  ngOnInit(): void {
+    this.http.getStudents().then((response)=>{
+      this.studentDataSource = new MatTableDataSource<Student>(response);
+      this.studentDataSource.paginator = this.paginator;
+      this.studentDataSource.sort = this.sort;
+      console.log(response)
+    })
   }
 }
 
