@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {HttpService} from "../services/http.service";
-import {MatTableDataSource} from "@angular/material/table";
+import {MatTable, MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
 import {MatDialog} from "@angular/material/dialog";
@@ -18,6 +18,7 @@ export class AppComponent implements OnInit{
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatTable) studentTable!: MatTable<Student>;
 
   constructor(private http: HttpService,private studentFormDialog:MatDialog) {
 
@@ -55,12 +56,7 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.http.getStudents().then((response)=>{
-      this.studentDataSource = new MatTableDataSource<Student>(response);
-      this.studentDataSource.paginator = this.paginator;
-      this.studentDataSource.sort = this.sort;
-      console.log(response)
-    })
+    this.initializeDataSource()
   }
 
   openStudentForm(id:any) {
@@ -73,10 +69,20 @@ export class AppComponent implements OnInit{
 
     dialogReferrence.afterClosed().subscribe(result =>
     {
-      const student: Student = result;
-      this.studentDataSource.data.push(student)
+      const studentDTO: StudentDTO = result;
+      this.http.createStudent(studentDTO).then((response => {
+        this.studentDataSource.data = this.http.students;
+      }))
     })
 
+  }
+
+  private initializeDataSource() {
+    this.http.getStudents().then((response)=>{
+      this.studentDataSource = new MatTableDataSource<Student>(this.http.students);
+      this.studentDataSource.paginator = this.paginator;
+      this.studentDataSource.sort = this.sort;
+    })
   }
 }
 

@@ -30,12 +30,11 @@ export class StudentformComponent implements OnInit {
   saveStudent() {
     if (this.studentForm.valid){
       const student: any = {
-        id: 1,
-        name: this.studentForm.controls.name,
-        address: this.studentForm.controls.address,
-        zipcode: this.studentForm.controls.zipcode,
-        postaldistrict: this.studentForm.controls.postaldistrict,
-        email: this.studentForm.controls.email
+        name: this.studentForm.controls.name.value,
+        address: this.studentForm.controls.address.value,
+        zipcode: this.studentForm.controls.zipcode.value,
+        postaldistrict: this.studentForm.controls.postaldistrict.value,
+        email: this.studentForm.controls.email.value
       }
       this.dialogRef.close(student);
     }

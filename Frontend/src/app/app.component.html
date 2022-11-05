@@ -14,7 +14,7 @@
 
   <div class="mat-elevation-z8">
 
-    <table mat-table [dataSource]="studentDataSource" matSort>
+    <table mat-table #studentTable [dataSource]="studentDataSource" matSort>
 
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>

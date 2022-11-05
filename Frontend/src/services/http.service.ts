@@ -24,9 +24,10 @@ export class HttpService{
     return this.students;
   }
 
-  async createStudent(dto:  StudentDTO) {
+  async createStudent(dto:  StudentDTO): Promise<Student>  {
     const httpResponse = await customAxios.post('/Student/PostStudent',dto);
     this.students.push(httpResponse.data);
+    return httpResponse.data
   }
 
   async deleteStudent(id:number){
