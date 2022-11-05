@@ -64,6 +64,8 @@ export class AppComponent implements OnInit{
 
     dialogReferrence.afterClosed().subscribe(result =>
     {
+      if (result==undefined)
+        return
       if (student!=null)
         this.editStudent(result);
       else
