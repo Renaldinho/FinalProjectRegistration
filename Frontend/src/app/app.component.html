@@ -9,7 +9,7 @@
 
   <mat-form-field appearance="standard">
     <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Bobby Bobson">
+    <input matInput (keyup)="applyFilter($event)" >
   </mat-form-field>
 
   <div class="mat-elevation-z8">
@@ -61,5 +61,10 @@
 
   </div>
 
+  <br>
+
+  <button mat-raised-button (click)="openStudentForm(1)">Add</button>
+
 </div>
+
 

@@ -1,0 +1,61 @@
+
+<form [formGroup]="studentForm">
+
+<div mat-dialog-content >
+
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>ID</mat-label>
+      <input matInput formControlName="id" >
+      <mat-icon matSuffix>fingerprint</mat-icon>
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Bob bobson" formControlName="name">
+      <mat-icon matSuffix>face</mat-icon>
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>Address</mat-label>
+      <input matInput placeholder="Evergreen terrace 123" formControlName="address">
+      <mat-icon matSuffix>home</mat-icon>
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>Zipcode</mat-label>
+      <input matInput placeholder="6700" formControlName="zipcode">
+      <mat-icon matSuffix>local_post_office</mat-icon>
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>Postal district</mat-label>
+      <input matInput placeholder="Cais do Sodre" formControlName="postaldistrict">
+      <mat-icon matSuffix>place</mat-icon>
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="real@mail.com" formControlName="email">
+      <mat-icon matSuffix>mail_outline</mat-icon>
+    </mat-form-field>
+  </p>
+
+</div>
+
+<div mat-dialog-actions class="dialog-actions">
+  <button mat-stroked-button color="primary" (click)="cancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="saveStudent()">Save</button>
+</div>
+
+</form>

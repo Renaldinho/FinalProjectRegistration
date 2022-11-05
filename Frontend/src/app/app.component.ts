@@ -3,13 +3,15 @@ import {HttpService} from "../services/http.service";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
+import {MatDialog} from "@angular/material/dialog";
+import {StudentformComponent} from "./components/studentform/studentform.component";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements AfterViewInit,OnInit{
+export class AppComponent implements OnInit{
 
   displayedColumns: String[] = ["id","name","address","zipcode","postal district","email"]
   studentDataSource!: MatTableDataSource<Student>;
@@ -17,13 +19,10 @@ export class AppComponent implements AfterViewInit,OnInit{
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private http: HttpService) {
+  constructor(private http: HttpService,private studentFormDialog:MatDialog) {
 
   }
 
-  ngAfterViewInit(): void {
-
-  }
 
   printStudents() {
     this.studentDataSource = new MatTableDataSource<Student>(this.http.students);
@@ -62,6 +61,22 @@ export class AppComponent implements AfterViewInit,OnInit{
       this.studentDataSource.sort = this.sort;
       console.log(response)
     })
+  }
+
+  openStudentForm(id:any) {
+    const dialogReferrence = this.studentFormDialog.open(StudentformComponent,{
+      //width: '250px',
+      enterAnimationDuration: '1000ms',
+      exitAnimationDuration: '1000ms',
+      data: id
+    })
+
+    dialogReferrence.afterClosed().subscribe(result =>
+    {
+      const student: Student = result;
+      this.studentDataSource.data.push(student)
+    })
+
   }
 }
 
