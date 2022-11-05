@@ -13,7 +13,7 @@ import {StudentformComponent} from "./components/studentform/studentform.compone
 })
 export class AppComponent implements OnInit{
 
-  displayedColumns: String[] = ["id","name","address","zipcode","postal district","email"]
+  displayedColumns: String[] = ["id","name","address","zipcode","postal district","email","actions"]
   studentDataSource!: MatTableDataSource<Student>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -38,15 +38,10 @@ export class AppComponent implements OnInit{
   }
 
   deleteStudent(id: number) {
-    this.http.deleteStudent(id);
-  }
+    this.http.deleteStudent(id).then((response => {
+      this.studentDataSource.data = this.http.students
+    }));
 
-  editStudent() {
-    const student: Student = {
-      address: "1111", email: "11111", id: 4, name: "caca", postaldistrict: "321312", zipcode: 1111
-
-    }
-    this.http.editStudent(student);
   }
 
 
@@ -59,20 +54,20 @@ export class AppComponent implements OnInit{
     this.initializeDataSource()
   }
 
-  openStudentForm(id:any) {
+  openStudentForm(student:Student) {
     const dialogReferrence = this.studentFormDialog.open(StudentformComponent,{
       //width: '250px',
       enterAnimationDuration: '1000ms',
       exitAnimationDuration: '1000ms',
-      data: id
+      data: student
     })
 
     dialogReferrence.afterClosed().subscribe(result =>
     {
-      const studentDTO: StudentDTO = result;
-      this.http.createStudent(studentDTO).then((response => {
-        this.studentDataSource.data = this.http.students;
-      }))
+      if (student!=null)
+        this.editStudent(result);
+      else
+        this.createStudent(result);
     })
 
   }
@@ -83,6 +78,24 @@ export class AppComponent implements OnInit{
       this.studentDataSource.paginator = this.paginator;
       this.studentDataSource.sort = this.sort;
     })
+  }
+
+  createStudent(result: any) {
+    const studentDTO: StudentDTO = result;
+    this.http.createStudent(studentDTO).then((response => {
+      this.studentDataSource.data = this.http.students;
+    }))
+  }
+
+  editStudent(studentToEdit: Student) {
+    const student: Student = studentToEdit;
+    this.http.editStudent(student).then((response=> {
+      this.initializeDataSource();
+    }));
+  }
+
+  public saveStudent(result: any) {
+    this.openStudentForm(result)
   }
 }
 

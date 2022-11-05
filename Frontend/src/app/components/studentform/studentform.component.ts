@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
-import {MatDialogRef} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-studentform',
@@ -9,7 +9,10 @@ import {MatDialogRef} from "@angular/material/dialog";
 })
 export class StudentformComponent implements OnInit {
 
-  constructor(private builder: FormBuilder,public dialogRef: MatDialogRef<StudentformComponent>) { }
+  constructor(private builder: FormBuilder,public dialogRef: MatDialogRef<StudentformComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: Student) {
+    this.fillFields(data);
+  }
 
   ngOnInit(): void {
   }
@@ -29,14 +32,40 @@ export class StudentformComponent implements OnInit {
 
   saveStudent() {
     if (this.studentForm.valid){
-      const student: any = {
-        name: this.studentForm.controls.name.value,
-        address: this.studentForm.controls.address.value,
-        zipcode: this.studentForm.controls.zipcode.value,
-        postaldistrict: this.studentForm.controls.postaldistrict.value,
-        email: this.studentForm.controls.email.value
+      if (this.data==null){
+        const studentDTO: any = {
+          name: this.studentForm.controls.name.value,
+          address: this.studentForm.controls.address.value,
+          zipcode: this.studentForm.controls.zipcode.value,
+          postaldistrict: this.studentForm.controls.postaldistrict.value,
+          email: this.studentForm.controls.email.value
+        }
+        this.dialogRef.close(studentDTO);
       }
-      this.dialogRef.close(student);
+      else {
+        const student: any = {
+          id: this.data.id,
+          name: this.studentForm.controls.name.value,
+          address: this.studentForm.controls.address.value,
+          zipcode: this.studentForm.controls.zipcode.value,
+          postaldistrict: this.studentForm.controls.postaldistrict.value,
+          email: this.studentForm.controls.email.value
+        }
+        this.dialogRef.close(student);
+        console.log(student)
+      }
+
     }
+  }
+
+  private fillFields(data: any) {
+    if (data==null)
+      return;
+    this.studentForm.controls.id.setValue(data.id.toString());
+    this.studentForm.controls.name.setValue(data.name);
+    this.studentForm.controls.email.setValue(data.email);
+    this.studentForm.controls.address.setValue(data.address);
+    this.studentForm.controls.postaldistrict.setValue(data.postalDistrict);
+    this.studentForm.controls.zipcode.setValue(data.zipCode.toString())
   }
 }

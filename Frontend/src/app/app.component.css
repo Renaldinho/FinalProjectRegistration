@@ -1,7 +1,11 @@
 td,th{
-  width: 20%;
+  width: 15.3%;
 }
 
 .main-container{
   margin: 20px;
+}
+
+button + button {
+  margin-left: 10px;
 }

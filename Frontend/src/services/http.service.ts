@@ -32,7 +32,8 @@ export class HttpService{
 
   async deleteStudent(id:number){
     const httpResponse = await customAxios.delete('/Student/'+id);
-    this.students.filter(s=>s.id!=httpResponse.data.id);
+    let index = this.students.findIndex(s => s.id === id);
+    this.students.splice(index,1);
   }
 
   async editStudent(student: Student){
