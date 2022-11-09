@@ -77,3 +77,12 @@ C:\Users\Bruger\Documents\GitHub\FinalProjectRegistration\Assignment8\API\bin\De
 C:\Users\Bruger\Documents\GitHub\FinalProjectRegistration\Assignment8\API\bin\Debug\net6.0\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\Bruger\Documents\GitHub\FinalProjectRegistration\Assignment8\API\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\Bruger\Documents\GitHub\FinalProjectRegistration\Assignment8\API\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\Bruger\Documents\GitHub\FinalProjectRegistration\Assignment8\API\bin\Debug\net6.0\BCrypt.Net-Next.dll
+C:\Users\Bruger\Documents\GitHub\FinalProjectRegistration\Assignment8\API\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Bruger\Documents\GitHub\FinalProjectRegistration\Assignment8\API\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Bruger\Documents\GitHub\FinalProjectRegistration\Assignment8\API\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Bruger\Documents\GitHub\FinalProjectRegistration\Assignment8\API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Bruger\Documents\GitHub\FinalProjectRegistration\Assignment8\API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Bruger\Documents\GitHub\FinalProjectRegistration\Assignment8\API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Bruger\Documents\GitHub\FinalProjectRegistration\Assignment8\API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Bruger\Documents\GitHub\FinalProjectRegistration\Assignment8\API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll

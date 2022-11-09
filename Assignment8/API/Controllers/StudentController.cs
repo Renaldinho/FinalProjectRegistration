@@ -2,10 +2,12 @@ using Application.DTOs;
 using Domain;
 using Domain.Interfaces;
 using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("[controller]")]
 public class StudentController : ControllerBase

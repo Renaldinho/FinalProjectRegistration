@@ -1,4 +1,5 @@
-﻿using Domain.Interfaces;
+﻿using Application.Interfaces;
+using Domain.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Application.DependencyResolvement;
@@ -8,6 +9,7 @@ public static class DependencyResolverService
 
     public static void RegisterApplicationLayer(IServiceCollection services)
     {
+        services.AddScoped<IAuthService, AuthService>();
         services.AddScoped<IStudentService, StudentService>();
     }
 

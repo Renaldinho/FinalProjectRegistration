@@ -6,9 +6,9 @@ namespace Infrastructure;
 public class StudentRepository: IStudentRepository
 {
 
-    private StudentDbContext _context;
+    private DatabaseContext _context;
 
-    public StudentRepository(StudentDbContext context)
+    public StudentRepository(DatabaseContext context)
     {
         _context = context;
     }
